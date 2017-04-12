@@ -15,6 +15,7 @@
 		3F7985341E9BEEA300D923DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7985321E9BEEA300D923DB /* LaunchScreen.storyboard */; };
 		3F79853F1E9BEEA400D923DB /* Youtube_PlaylistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F79853E1E9BEEA400D923DB /* Youtube_PlaylistTests.swift */; };
 		3F79854A1E9BEEA400D923DB /* Youtube_PlaylistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7985491E9BEEA400D923DB /* Youtube_PlaylistUITests.swift */; };
+		3F7985581E9E8CDC00D923DB /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7985571E9E8CDC00D923DB /* Video.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3F7985451E9BEEA400D923DB /* Youtube PlaylistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Youtube PlaylistUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7985491E9BEEA400D923DB /* Youtube_PlaylistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube_PlaylistUITests.swift; sourceTree = "<group>"; };
 		3F79854B1E9BEEA400D923DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F7985571E9E8CDC00D923DB /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				3F7985271E9BEEA300D923DB /* AppDelegate.swift */,
 				3F7985291E9BEEA300D923DB /* MasterViewController.swift */,
+				3F7985571E9E8CDC00D923DB /* Video.swift */,
 				3F79852B1E9BEEA300D923DB /* DetailViewController.swift */,
 				3F79852D1E9BEEA300D923DB /* Main.storyboard */,
 				3F7985301E9BEEA300D923DB /* Assets.xcassets */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F79852C1E9BEEA300D923DB /* DetailViewController.swift in Sources */,
+				3F7985581E9E8CDC00D923DB /* Video.swift in Sources */,
 				3F79852A1E9BEEA300D923DB /* MasterViewController.swift in Sources */,
 				3F7985281E9BEEA300D923DB /* AppDelegate.swift in Sources */,
 			);
@@ -511,6 +515,7 @@
 				3F7985501E9BEEA400D923DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F7985511E9BEEA400D923DB /* Build configuration list for PBXNativeTarget "Youtube PlaylistTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +524,7 @@
 				3F7985531E9BEEA400D923DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F7985541E9BEEA400D923DB /* Build configuration list for PBXNativeTarget "Youtube PlaylistUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +533,7 @@
 				3F7985561E9BEEA400D923DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

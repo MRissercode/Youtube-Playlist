@@ -11,7 +11,8 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var urlTextField: UITextField!
 
     func configureView() {
         // Update the user interface for the detail item.
@@ -40,6 +41,8 @@ class DetailViewController: UIViewController {
         }
     }
 
+    @IBAction func onTapPlayVideo(_ sender: UIButton) {
+    }
 
 }
 

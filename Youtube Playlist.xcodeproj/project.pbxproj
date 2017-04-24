@@ -16,6 +16,10 @@
 		3F79853F1E9BEEA400D923DB /* Youtube_PlaylistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F79853E1E9BEEA400D923DB /* Youtube_PlaylistTests.swift */; };
 		3F79854A1E9BEEA400D923DB /* Youtube_PlaylistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7985491E9BEEA400D923DB /* Youtube_PlaylistUITests.swift */; };
 		3F7985581E9E8CDC00D923DB /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7985571E9E8CDC00D923DB /* Video.swift */; };
+		3F7985641EAE5E1D00D923DB /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7985631EAE5E1D00D923DB /* Realm.framework */; };
+		3F7985651EAE5E1D00D923DB /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7985631EAE5E1D00D923DB /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3F7985681EAE5E9100D923DB /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7985671EAE5E9100D923DB /* RealmSwift.framework */; };
+		3F7985691EAE5E9100D923DB /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7985671EAE5E9100D923DB /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3F7985661EAE5E1D00D923DB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3F7985691EAE5E9100D923DB /* RealmSwift.framework in Embed Frameworks */,
+				3F7985651EAE5E1D00D923DB /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3F7985241E9BEEA300D923DB /* Youtube Playlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Youtube Playlist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7985271E9BEEA300D923DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +70,8 @@
 		3F7985491E9BEEA400D923DB /* Youtube_PlaylistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube_PlaylistUITests.swift; sourceTree = "<group>"; };
 		3F79854B1E9BEEA400D923DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F7985571E9E8CDC00D923DB /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		3F7985631EAE5E1D00D923DB /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		3F7985671EAE5E9100D923DB /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F7985681EAE5E9100D923DB /* RealmSwift.framework in Frameworks */,
+				3F7985641EAE5E1D00D923DB /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +104,8 @@
 		3F79851B1E9BEEA300D923DB = {
 			isa = PBXGroup;
 			children = (
+				3F7985631EAE5E1D00D923DB /* Realm.framework */,
+				3F7985671EAE5E9100D923DB /* RealmSwift.framework */,
 				3F7985261E9BEEA300D923DB /* Youtube Playlist */,
 				3F79853D1E9BEEA400D923DB /* Youtube PlaylistTests */,
 				3F7985481E9BEEA400D923DB /* Youtube PlaylistUITests */,
@@ -141,6 +166,7 @@
 				3F7985201E9BEEA300D923DB /* Sources */,
 				3F7985211E9BEEA300D923DB /* Frameworks */,
 				3F7985221E9BEEA300D923DB /* Resources */,
+				3F7985661EAE5E1D00D923DB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -422,6 +448,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Youtube Playlist/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "The.Youtube-Playlist";
@@ -434,6 +464,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Youtube Playlist/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "The.Youtube-Playlist";

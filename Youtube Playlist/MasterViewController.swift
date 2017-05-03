@@ -27,9 +27,9 @@ class MasterViewController: UITableViewController {
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
+        self.clearsSelectionOnViewWillAppear = (self.splitViewController?.isCollapsed)!
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
@@ -72,8 +72,6 @@ class MasterViewController: UITableViewController {
         }
     }
 
-    // MARK: - Table View
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -84,9 +82,8 @@ class MasterViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        let video = objects[indexPath.row]
-        cell.textLabel!.text = (video as AnyObject).description
+        let object = objects[indexPath.row] as! Video
+        cell.textLabel!.text = object.title
         return cell
     }
 
@@ -97,7 +94,6 @@ class MasterViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

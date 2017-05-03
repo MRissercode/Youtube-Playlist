@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 import SafariServices
 
 class DetailViewController: UIViewController {
@@ -15,7 +14,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var urlTextField: UITextField!
-    let realm = try! Realm()
 
     func configureView() {
         // Update the user interface for the detail item.
@@ -47,14 +45,15 @@ class DetailViewController: UIViewController {
     
     @IBAction func onTapSave(_ sender: UIButton) {
         if let video = detailItem {
-            try! self.realm.write ({
-                video.title = titleTextField.text!
-                video.url = urlTextField.text!
-            })
+            video.title = titleTextField.text!
+            video.url = urlTextField.text!
         }
     }
 
     @IBAction func onTapPlayVideo(_ sender: UIButton) {
+        let url = URL(string: urlTextField.text!)
+        let svc = SFSafariViewController(url: url!)
+        present(svc, animated: true, completion: nil)
     }
 
 }

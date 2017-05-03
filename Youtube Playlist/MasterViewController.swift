@@ -7,17 +7,12 @@
 //
 
 import UIKit
-import RealmSwift
 import SafariServices
 
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
-    let realm = try! Realm()
-    lazy var videos: Results<Video> = {
-        self.realm.objects(Video.self)
-    }()
 
 
     override func viewDidLoad() {
@@ -30,9 +25,6 @@ class MasterViewController: UITableViewController {
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
-        for video in videos {
-            objects.append(video)
         }
     }
 
@@ -60,14 +52,9 @@ class MasterViewController: UITableViewController {
         let insertAction = UIAlertAction(title: "Add", style: .default) { (action) in
             let titleTextField = alert.textFields![0] as UITextField
             let urlTextField = alert.textFields![1] as UITextField
-            if let url = urlTextField.text! {
-                let video = Video(title: titleTextField.text!, url: urlTextField.text!)
-                self.videos.append(video)
-                try! self.realm.write {
-                    self.realm.add(video)
-                }
-            }
             self.tableView.reloadData()
+            let video = Video(title: titleTextField.text!, url: urlTextField.text!)
+            self.objects.append(video)
         }
         alert.addAction(insertAction)
         self.present(alert, animated: true, completion: nil)
@@ -78,9 +65,9 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let video = videos[indexPath.row] 
+                let video = objects[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = video
+                controller.detailItem = video as! Video
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -94,14 +81,14 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return videos.count
+        return objects.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let video = videos[indexPath.row]
-        cell.textLabel!.text = video.description
+        let video = objects[indexPath.row]
+        cell.textLabel!.text = (video as AnyObject).description
         return cell
     }
 
@@ -112,7 +99,7 @@ class MasterViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            videos.remove(at: indexPath.row)
+            objects.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

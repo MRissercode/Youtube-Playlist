@@ -8,10 +8,10 @@
 
 import UIKit
 
-class Video: NSObject {
+class Video: AnyObject {
     
-    dynamic var title = String()
-    dynamic var url = String()
+    var title = String()
+    var url = String()
     
     convenience init(title: String, url: String) {
         self.init()

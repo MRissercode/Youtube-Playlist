@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Video: AnyObject {
+class Video: NSObject {
     
     var title = String()
     var url = String()

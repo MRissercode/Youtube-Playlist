@@ -12,7 +12,7 @@ import SafariServices
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [AnyObject]()
+    var objects = [NSObject]()
 
 
     override func viewDidLoad() {
@@ -25,6 +25,9 @@ class MasterViewController: UITableViewController {
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+        }
+        for object in objects {
+            objects.append(object)
         }
     }
     
@@ -58,6 +61,7 @@ class MasterViewController: UITableViewController {
         }
         alert.addAction(insertAction)
         self.present(alert, animated: true, completion: nil)
+        tableView.reloadData()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

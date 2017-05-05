@@ -12,7 +12,7 @@ import SafariServices
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [Any]()
+    var objects = [AnyObject]()
 
 
     override func viewDidLoad() {

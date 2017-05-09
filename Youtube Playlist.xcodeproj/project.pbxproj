@@ -16,6 +16,10 @@
 		3F79853F1E9BEEA400D923DB /* Youtube_PlaylistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F79853E1E9BEEA400D923DB /* Youtube_PlaylistTests.swift */; };
 		3F79854A1E9BEEA400D923DB /* Youtube_PlaylistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7985491E9BEEA400D923DB /* Youtube_PlaylistUITests.swift */; };
 		3F7985581E9E8CDC00D923DB /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7985571E9E8CDC00D923DB /* Video.swift */; };
+		3FA002241EC220E20081AEC1 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA002231EC220E20081AEC1 /* Realm.framework */; };
+		3FA002251EC220E20081AEC1 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA002231EC220E20081AEC1 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3FA002271EC220E90081AEC1 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA002261EC220E90081AEC1 /* RealmSwift.framework */; };
+		3FA002281EC220E90081AEC1 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FA002261EC220E90081AEC1 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3FA002281EC220E90081AEC1 /* RealmSwift.framework in Embed Frameworks */,
+				3FA002251EC220E20081AEC1 /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +70,8 @@
 		3F7985491E9BEEA400D923DB /* Youtube_PlaylistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube_PlaylistUITests.swift; sourceTree = "<group>"; };
 		3F79854B1E9BEEA400D923DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F7985571E9E8CDC00D923DB /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		3FA002231EC220E20081AEC1 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		3FA002261EC220E90081AEC1 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FA002271EC220E90081AEC1 /* RealmSwift.framework in Frameworks */,
+				3FA002241EC220E20081AEC1 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +104,8 @@
 		3F79851B1E9BEEA300D923DB = {
 			isa = PBXGroup;
 			children = (
+				3FA002261EC220E90081AEC1 /* RealmSwift.framework */,
+				3FA002231EC220E20081AEC1 /* Realm.framework */,
 				3F7985261E9BEEA300D923DB /* Youtube Playlist */,
 				3F79853D1E9BEEA400D923DB /* Youtube PlaylistTests */,
 				3F7985481E9BEEA400D923DB /* Youtube PlaylistUITests */,

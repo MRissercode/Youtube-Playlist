@@ -13,7 +13,7 @@ import SafariServices
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [NSObject]()
+    var objects = [Object]()
     let realm = try! Realm()
     lazy var videos: Results<Video> = {
         self.realm.objects(Video.self)
@@ -31,8 +31,8 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
-        for object in objects {
-            objects.append(object)
+        for video in videos {
+            objects.append(video)
         }
     }
     
@@ -63,6 +63,9 @@ class MasterViewController: UITableViewController {
             self.tableView.reloadData()
             let video = Video(title: titleTextField.text!, url: urlTextField.text!)
             self.objects.append(video)
+            try! self.realm.write {
+                self.realm.add(video)
+            }
         }
         alert.addAction(insertAction)
         self.present(alert, animated: true, completion: nil)
@@ -103,7 +106,10 @@ class MasterViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
+            let video = objects.remove(at: indexPath.row)
+            try! self.realm.write {
+                self.realm.delete(video)
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

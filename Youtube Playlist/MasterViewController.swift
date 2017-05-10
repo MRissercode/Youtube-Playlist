@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import RealmSwift
 import SafariServices
 
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [NSObject]()
+    let realm = try! Realm()
+    lazy var videos: Results<Video> = {
+        self.realm.objects(Video.self)
+    }()
 
 
     override func viewDidLoad() {

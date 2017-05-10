@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import RealmSwift
+import SafariServices
 
-class Video: NSObject {
+class Video: Object {
     
     var title = String()
     var url = String()
